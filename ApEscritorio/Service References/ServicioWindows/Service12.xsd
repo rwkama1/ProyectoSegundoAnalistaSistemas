@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Entidades" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Entidades" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://waldemar-pc/Servicio/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Collections.Generic" />
+  <xs:import schemaLocation="http://waldemar-pc/Servicio/Service1.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="Usuarios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contraseña" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ndoc" type="xs:long" />
+      <xs:element minOccurs="0" name="NomUsu" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuarios" nillable="true" type="tns:Usuarios" />
+  <xs:complexType name="Lector">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Usuarios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Lector" nillable="true" type="tns:Lector" />
+  <xs:complexType name="Administrador">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Usuarios">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeneraLectores" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Administrador" nillable="true" type="tns:Administrador" />
+  <xs:complexType name="ArrayOfLector">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lector" nillable="true" type="tns:Lector" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLector" nillable="true" type="tns:ArrayOfLector" />
+  <xs:complexType name="Noticias">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantComentarios" type="xs:int" />
+      <xs:element minOccurs="0" name="Categoria" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CuerpoNoticia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FechaHoraCreacion" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IdNoticia" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" minOccurs="0" name="ListaComentarios" nillable="true" type="q1:QueueOfComentariosrzoQK7bR" />
+      <xs:element minOccurs="0" name="NomPeriodista" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Periodista" nillable="true" type="tns:Periodista" />
+      <xs:element minOccurs="0" name="Relevante" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Resumen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Noticias" nillable="true" type="tns:Noticias" />
+  <xs:complexType name="ArrayOfComentarios">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comentarios" nillable="true" type="tns:Comentarios" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfComentarios" nillable="true" type="tns:ArrayOfComentarios" />
+  <xs:complexType name="Comentarios">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Comentario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdComentario" type="xs:int" />
+      <xs:element minOccurs="0" name="Lector" nillable="true" type="tns:Lector" />
+      <xs:element minOccurs="0" name="NomUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Comentarios" nillable="true" type="tns:Comentarios" />
+  <xs:complexType name="Periodista">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fechanacimiento" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListaPremios" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Nacionalidad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomPeriodista" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Periodista" nillable="true" type="tns:Periodista" />
+  <xs:complexType name="ArrayOfNoticias">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Noticias" nillable="true" type="tns:Noticias" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNoticias" nillable="true" type="tns:ArrayOfNoticias" />
+  <xs:complexType name="ArrayOfPeriodista">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Periodista" nillable="true" type="tns:Periodista" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeriodista" nillable="true" type="tns:ArrayOfPeriodista" />
+</xs:schema>

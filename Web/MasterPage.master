@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style2
+        {
+        }
+        .style3
+        {
+            width: 85px;
+            font-size: xx-large;
+        }
+        .style4
+        {
+            width: 85px;
+            height: 23px;
+        }
+        .style5
+        {
+            height: 23px;
+        }
+        .style6
+        {
+            font-size: xx-large;
+        }
+        .style7
+        {
+            width: 469px;
+        }
+        .style8
+        {
+            width: 63px;
+        }
+        .style9
+        {
+            width: 85px;
+        }
+    </style>
+    <link href="Estilo.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 100%; height: 216px;">
+            <tr>
+                <td class="style3">
+                    &nbsp;</td>
+                <td class="style6" colspan="2">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    LOGUEO LECTOR</td>
+                <td class="style6">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style9">
+                    <asp:Menu ID="Menu1" runat="server" Font-Size="Medium" 
+                        onmenuitemclick="Menu1_MenuItemClick" CssClass="Estilo">
+                        <Items>
+                            <asp:MenuItem Text="Principal" Value="Principal" NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Noticias Economicas" Value="Noticias Economicas" 
+                                NavigateUrl="~/Pagina Economica.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Noticias Politicas" Value="Noticias Politicas" 
+                                NavigateUrl="~/PaginaPolitica.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Noticias Internacionales" Value="Noticias Internacionales" 
+                                NavigateUrl="~/PaginaInternacionales.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Noticias Policiales" Value="Noticias Policiales" 
+                                NavigateUrl="~/PaginaPolicial.aspx">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="HistoricoNoticias" Value="HistoricoNoticias" 
+                                NavigateUrl="~/HistoricoNoticias.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="DatosLector" Value="DatosLector" 
+                                NavigateUrl="~/DatosLector.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="RegistroLector" Value="RegistroLector" 
+                                NavigateUrl="~/RegistroLector.aspx"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+                <td class="style7">
+                    &nbsp;</td>
+                <td class="style8">
+                    <asp:Login ID="Login2" runat="server" Height="141px" Width="313px" 
+                        onauthenticate="Login2_Authenticate" BackColor="#F7F7DE" 
+                        BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" CssClass="Estilo" 
+                        Font-Names="Verdana" Font-Size="10pt">
+                        <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
+                    </asp:Login>
+                    <asp:Button ID="btndeslogueo" runat="server" Height="27px" Text="Deslogueo" 
+                        Width="113px" onclick="btndeslogueo_Click" CssClass="Estilo" />
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style9">
+                    &nbsp;</td>
+                <td>
+                &nbsp;<asp:Label ID="lblnombrelectorlogueado" runat="server" 
+                        CssClass="Estilo" Font-Size="X-Large"></asp:Label>
+                </td>
+                <td class="style8">
+                    <asp:Label ID="lblerror" runat="server" CssClass="Estilo"></asp:Label>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style4">
+                    &nbsp;</td>
+                <td class="style5" colspan="2">
+                    &nbsp;</td>
+                <td class="style5">
+                </td>
+            </tr>
+            <tr>
+                <td class="style2" colspan="4">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            <p>
+                <br />
+            </p>
+            <p>
+            </p>
+            <p style="margin-right: 0px">
+            </p>
+            <p style="width: 710px">
+            </p>
+            <p>
+            </p>
+            <p style="height: 42px">
+            </p>
+        
+        </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            </table>
+    </div>
+    </form>
+</body>
+</html>
